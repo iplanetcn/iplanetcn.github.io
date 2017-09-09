@@ -1,7 +1,11 @@
 ---
 title: 那些花儿
 date: 2017-09-09 21:36:51
-tags: photo
+categories: 摄影
+tags: 
+    - picture
+    - photo
+    - flower
 ---
 ## 无名小花
 ![Little flower](http://wx3.sinaimg.cn/mw690/724924ecgy1fjdudw8ndqj20sg0lcjy5.jpg)
