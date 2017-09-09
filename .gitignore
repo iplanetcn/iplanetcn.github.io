@@ -1,5 +1,12 @@
 # Created by .ignore support plugin (hsz.mobi)
-
+.DS_Store
+Thumbs.db
+db.json
+*.log
+public/
+node_modules/
+.deploy*/
+.git*/
 # IntelliJ project files
 .idea
 *.iml
