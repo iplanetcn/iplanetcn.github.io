@@ -1,7 +1,12 @@
 ---
 title: macOS 安装和管理多个Python版本
 date: 2018-07-09 09:56:46
-tags: brew python pyenv macos
+categories: Python
+tags: 
+    - homebrew
+    - python
+    - pyenv
+    - macos
 ---
 #### 说明
 目前Python同时更新与维护Python2和Python3，选择Python2还是选择Python3，取决于当前要使用的库、框架支持哪个版本，所以经常会遇到切换版本的情况。
