@@ -16,7 +16,7 @@ tags:
 这里通过brew安装pyenv，再用pyenv安装管理Python。
 
 #### 安装步骤
-1. 安装[homebrew](https://brew.sh/)：🚀
+- ##### 安装[homebrew](https://brew.sh/)：🚀
  ```bash
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 $ brew -v
@@ -25,7 +25,7 @@ Homebrew/homebrew-core (git revision 5707e; last commit 2018-07-09)
 ```
 注：Homebrew 是macOS下非常高效的命令行软件包管理器，mac必安装工具之一。
 
-2. 安装[pyenv](https://github.com/pyenv/pyenv)：🛰
+- ##### 安装[pyenv](https://github.com/pyenv/pyenv)：🛰
 ```bash
 $ brew update
 $ brew install pyenv
@@ -33,7 +33,7 @@ $ pyenv -v
 pyenv 1.2.5
 ```
 
-3. 安装管理多个Python：
+- ##### 安装管理多个Python：
 ```bash
 $ pyenv install 2.7.15
 $ pyenv install 3.7.0
@@ -44,7 +44,7 @@ $ pyenv versions
 ```
 注：星号指定当前的版本
 
-4. 切换版本：
+- ##### 切换版本：
 ```bash
 $ pyenv global 2.7.15
 $ pyenv versions
@@ -55,7 +55,7 @@ $ python --version
 Python 2.7.15
 ```
 
-5. pyenv常用的命令说明：
+- ##### pyenv常用的命令说明：
  ```bash
 使用方式: pyenv <命令> [<参数>]
 
