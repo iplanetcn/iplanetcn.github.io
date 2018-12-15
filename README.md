@@ -1,2 +1,2 @@
 # iplanetcn.github.io
-John's Blog Source Code
+[John's Blog](http://moonvsriver.com) Source Code
