@@ -1,6 +1,7 @@
 ---
 title: Ubuntu中以非root用户身份管理Docker
 date: 2018-12-19 00:11:24
+categories: Docker
 tags:
     - ubuntu
     - docker
