@@ -23,12 +23,14 @@ test expression
 ```
 
 #### 说明
+
 test是linux系统内置(builtin)的命令,用于评估表达式(expression)参数(parameter),
 表达式expression的参数值(argument)包括:
 文件测试参数,字符串测试参数,数字测试参数,参数组合运算符,退出状态码参数
 *多个测试语句之间可以使用逻辑运算符(!, &&, ||)连接, 优先级: ! > && > ||*
 
 #### 文件测试参数
+
 | 操作符 | 描述 |
 | --- | --- |
 | -b file | 如果file是文件并且是特殊块文件，则返回true</div>|
@@ -50,7 +52,9 @@ test是linux系统内置(builtin)的命令,用于评估表达式(expression)参�
 | file1 -nt file2 | 如果file1比file2新，则返回true |
 | file1 -ef file2 | 如果file1是file2的符号链接或硬链接，则返回true |
 
+
 #### 字符串测试参数
+
 | 操作符 | 描述 |
 | --- | --- |
 | -n string | 如果字符串长度非零，则返回true |
@@ -60,6 +64,7 @@ test是linux系统内置(builtin)的命令,用于评估表达式(expression)参�
 | string | 如果字符非空，则返回true |
 
 #### 数值比较测试参数
+
 | 操作符 | 描述 |
 | --- | --- |
 | num1 -eq num2 | 如果连个数值相等，则返回true |
@@ -69,7 +74,9 @@ test是linux系统内置(builtin)的命令,用于评估表达式(expression)参�
 | num1 -lt num2 | 如果num1小于num2，则返回true |
 | num1 -le num2 | 如果num1小于或等于num2，则返回true |
 
+
 #### 组合运算符参数（用于单个或多个测试）
+
 | 操作符 | 描述 |
 | --- | --- |
 | !expression | 一元否定运算符 |
@@ -95,7 +102,9 @@ then
 fi
 ```
 
-## 退出码参数
+
+#### 退出码参数
+
 | 操作符 | 描述 |
 | --- | --- |
 | 0 | 返回true |
