@@ -50,14 +50,14 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-#  home: / || home
-#  tags: /tags/ || tags
-#  categories: /categories/ || th
-#  archives: /archives/  || archive
-  home: http://moonvsriver.com/ || home
-  tags: http://moonvsriver.com/tags/ || tags
-  categories: http://moonvsriver.com/categories/ || th
-  archives: http://moonvsriver.com/archives/  || archive
+  home: / || home
+  tags: /tags/ || tags
+  categories: /categories/ || th
+  archives: /archives/  || archive
+#  home: http://moonvsriver.com/ || home
+#  tags: http://moonvsriver.com/tags/ || tags
+#  categories: http://moonvsriver.com/categories/ || th
+#  archives: http://moonvsriver.com/archives/  || archive
 #  schedule: /schedule/ || calendar
 #  sitemap: /sitemap.xml || sitemap
 #  commonweal: /404/ || heartbeat
