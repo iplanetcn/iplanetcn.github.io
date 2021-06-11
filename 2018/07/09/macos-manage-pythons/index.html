@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-logo.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;iplanetcn.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script><script src="/js/config.js"></script>
+<meta name="description" content="说明目前Python同时更新与维护Python2和Python3，选择Python2还是选择Python3，取决于当前要使用的库、框架支持哪个版本，所以经常会遇到切换版本的情况。 那么应该怎样有效的更改呢？很多小伙伴一定会想到修改环境变量，指定Python的默认路径，这样当然可以，然而不够优雅。那么怎样的方法才算优雅呢？当然是一条命令了👻。 这里通过brew安装pyenv，再用pyenv安装管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="macOS 安装和管理多个Python版本">
+<meta property="og:url" content="https://iplanetcn.github.io/2018/07/09/macos-manage-pythons/index.html">
+<meta property="og:site_name" content="John&#39;s blog">
+<meta property="og:description" content="说明目前Python同时更新与维护Python2和Python3，选择Python2还是选择Python3，取决于当前要使用的库、框架支持哪个版本，所以经常会遇到切换版本的情况。 那么应该怎样有效的更改呢？很多小伙伴一定会想到修改环境变量，指定Python的默认路径，这样当然可以，然而不够优雅。那么怎样的方法才算优雅呢？当然是一条命令了👻。 这里通过brew安装pyenv，再用pyenv安装管理">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-07-09T01:56:46.000Z">
+<meta property="article:modified_time" content="2021-06-11T03:00:03.872Z">
+<meta property="article:author" content="John">
+<meta property="article:tag" content="homebrew">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="pyenv">
+<meta property="article:tag" content="macos">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://iplanetcn.github.io/2018/07/09/macos-manage-pythons/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;iplanetcn.github.io&#x2F;2018&#x2F;07&#x2F;09&#x2F;macos-manage-pythons&#x2F;&quot;,&quot;path&quot;:&quot;2018&#x2F;07&#x2F;09&#x2F;macos-manage-pythons&#x2F;&quot;,&quot;title&quot;:&quot;macOS 安装和管理多个Python版本&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>macOS 安装和管理多个Python版本 | John's blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">John's blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85homebrew%EF%BC%9A%F0%9F%9A%80"><span class="nav-number">2.1.</span> <span class="nav-text">安装homebrew：🚀</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85pyenv%EF%BC%9A%F0%9F%9B%B0"><span class="nav-number">2.2.</span> <span class="nav-text">安装pyenv：🛰</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%AE%A1%E7%90%86%E5%A4%9A%E4%B8%AAPython%EF%BC%9A"><span class="nav-number">2.3.</span> <span class="nav-text">安装管理多个Python：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%87%E6%8D%A2%E7%89%88%E6%9C%AC%EF%BC%9A"><span class="nav-number">2.4.</span> <span class="nav-text">切换版本：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#pyenv%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">2.5.</span> <span class="nav-text">pyenv常用的命令说明：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/iplanetcn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iplanetcn" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/1917396204" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;1917396204" rel="noopener" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:iplanetcn@gmail.com" title="E-Mail → mailto:iplanetcn@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://iplanetcn.github.io/2018/07/09/macos-manage-pythons/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="John's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          macOS 安装和管理多个Python版本
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-09 09:56:46" itemprop="dateCreated datePublished" datetime="2018-07-09T09:56:46+08:00">2018-07-09</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-06-11 11:00:03" itemprop="dateModified" datetime="2021-06-11T11:00:03+08:00">2021-06-11</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>目前Python同时更新与维护Python2和Python3，选择Python2还是选择Python3，取决于当前要使用的库、框架支持哪个版本，所以经常会遇到切换版本的情况。</p>
+<p>那么应该怎样有效的更改呢？很多小伙伴一定会想到修改环境变量，指定Python的默认路径，这样当然可以，然而不够优雅。那么怎样的方法才算优雅呢？当然是一条命令了👻。</p>
+<p>这里通过brew安装pyenv，再用pyenv安装管理Python。</p>
+<h4 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h4><ul>
+<li><h5 id="安装homebrew：🚀"><a href="#安装homebrew：🚀" class="headerlink" title="安装homebrew：🚀"></a>安装<a target="_blank" rel="noopener" href="https://brew.sh/">homebrew</a>：🚀</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/bin/ruby -e <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>&quot;</span></span><br><span class="line">$ brew -v</span><br><span class="line">Homebrew 1.6.9</span><br><span class="line">Homebrew/homebrew-core (git revision 5707e; last commit 2018-07-09)</span><br></pre></td></tr></table></figure>
+<p>注：Homebrew 是macOS下非常高效的命令行软件包管理器，mac必安装工具之一。</p>
+</li>
+<li><h5 id="安装pyenv：🛰"><a href="#安装pyenv：🛰" class="headerlink" title="安装pyenv：🛰"></a>安装<a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">pyenv</a>：🛰</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew update</span><br><span class="line">$ brew install pyenv</span><br><span class="line">$ pyenv -v</span><br><span class="line">pyenv 1.2.5</span><br></pre></td></tr></table></figure></li>
+<li><h5 id="安装管理多个Python："><a href="#安装管理多个Python：" class="headerlink" title="安装管理多个Python："></a>安装管理多个Python：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install 2.7.15</span><br><span class="line">$ pyenv install 3.7.0</span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">  2.7.15</span><br><span class="line">* 3.7.0 (<span class="built_in">set</span> by /Users/john/.pyenv/version)</span><br></pre></td></tr></table></figure>
+<p>注：星号指定当前的版本</p>
+</li>
+<li><h5 id="切换版本："><a href="#切换版本：" class="headerlink" title="切换版本："></a>切换版本：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv global 2.7.15</span><br><span class="line">$ pyenv versions</span><br><span class="line">  system</span><br><span class="line">* 2.7.15 (<span class="built_in">set</span> by /Users/john/.pyenv/version)</span><br><span class="line">  3.7.0</span><br><span class="line">$ python --version</span><br><span class="line">Python 2.7.15</span><br></pre></td></tr></table></figure></li>
+<li><h5 id="pyenv常用的命令说明："><a href="#pyenv常用的命令说明：" class="headerlink" title="pyenv常用的命令说明："></a>pyenv常用的命令说明：</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">使用方式: pyenv &lt;命令&gt; [&lt;参数&gt;]</span><br><span class="line"></span><br><span class="line">命令:</span><br><span class="line">   commands    查看所有命令</span><br><span class="line">   <span class="built_in">local</span>       设置或显示本地的Python版本</span><br><span class="line">   global      设置或显示全局Python版本</span><br><span class="line">   shell       设置或显示shell指定的Python版本</span><br><span class="line">   install     安装指定Python版本</span><br><span class="line">   uninstall   卸载指定Python版本)</span><br><span class="line">   version     显示当前的Python版本及其本地路径</span><br><span class="line">   versions    查看所有已经安装的版本</span><br><span class="line">   <span class="built_in">which</span>       显示安装路径</span><br></pre></td></tr></table></figure>
+<p>注：使用local、global、shell，设置python版本时需要跟上参数（版本号），查看则不需要。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/homebrew/" rel="tag"># homebrew</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/pyenv/" rel="tag"># pyenv</a>
+              <a href="/tags/macos/" rel="tag"># macos</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/18/ubuntu-non-root-user-docker/" rel="prev" title="Ubuntu中以非root用户身份管理Docker">
+                  <i class="fa fa-chevron-left"></i> Ubuntu中以非root用户身份管理Docker
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
