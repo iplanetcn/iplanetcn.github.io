@@ -6,7 +6,7 @@ db.json
 public/
 node_modules/
 .deploy*/
-.git*/
+#.git*/
 # IntelliJ project files
 .idea
 *.iml

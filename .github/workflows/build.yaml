@@ -1,0 +1,53 @@
+name: Build and Deploy Hexo Blog
+
+on:
+  push:
+    branches:
+      - source
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout source branch
+      - name: Checkout Source
+        uses: actions/checkout@v3
+        with:
+          ref: source
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'npm'
+
+      # Install dependencies and build
+      - name: Install and Build
+        run: |
+          npm ci
+          npm install -g hexo-cli
+          hexo generate
+
+      # Deploy to main branch
+      - name: Deploy to Main
+        run: |
+          # Clone the main branch
+          git clone --branch main https://github.com/${{ github.repository }}.git main-branch
+          
+          # Clear old files and copy new built files
+          rm -rf main-branch/*
+          cp -r public/* main-branch/
+          
+          # Configure git
+          cd main-branch
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          
+          # Commit and push
+          git add .
+          git commit -m "Deploy built site from source - ${{ github.sha }}"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
