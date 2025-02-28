@@ -3,8 +3,8 @@ title: Ubuntu中以非root用户身份管理Docker
 date: 2018-12-19 00:11:24
 categories: Docker
 tags:
-    - ubuntu
-    - docker
+  - ubuntu
+  - docker
 ---
 
 #### 说明
@@ -16,26 +16,31 @@ Docker守护程序绑定到Unix套接字而不是TCP端口。默认情况下，U
 #### 执行步骤
 
 - ##### 添加docker用户组 (ubuntu16.04安装docker后,默认会创建该用户组)
+
 ```bash
 $ sudo groupadd docker
 ```
 
 - ##### 将当前用户加入到docker用户组中
+
 ```bash
 $ sudo usermod -aG docker $USER
 ```
 
 - ##### 重启服务
+
 ```bash
 $ sudo service docker restart
 ```
 
 - ##### 登录至新的docker组(也可以退出并重新登录)
+
 ```bash
 $ newgrp - docker
 ```
 
 - ##### 确认不需要添加sudo运行docker
+
 ```bash
 $ docker run hello-world
 ```
