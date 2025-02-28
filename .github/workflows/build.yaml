@@ -30,24 +30,24 @@ jobs:
           npm install -g hexo-cli
           hexo generate
 
-      # Deploy to main branch
-      - name: Deploy to Main
+      # Deploy to master branch
+      - name: Deploy to Master
         run: |
-          # Clone the main branch
-          git clone --branch main https://github.com/${{ github.repository }}.git main-branch
+          # Clone the master branch
+          git clone --branch master https://github.com/${{ github.repository }}.git master-branch
           
           # Clear old files and copy new built files
-          rm -rf main-branch/*
-          cp -r public/* main-branch/
+          rm -rf master-branch/*
+          cp -r public/* master-branch/
           
           # Configure git
-          cd main-branch
+          cd master-branch
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           
           # Commit and push
           git add .
           git commit -m "Deploy built site from source - ${{ github.sha }}"
-          git push origin main
+          git push --force origin master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
