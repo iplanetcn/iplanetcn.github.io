@@ -34,8 +34,7 @@ jobs:
       - name: Deploy to Master
         run: |
           # Clone the master branch
-          # git clone --branch master https://github.com/${{ github.repository }}.git master-branch
-          git clone --branch master git@github.com:${{ github.username }}/${{ github.repository }}.git master-branch
+          git clone --branch master https://github.com/${{ github.repository }}.git master-branch
           
           # Clear old files and copy new built files
           rm -rf master-branch/*
@@ -45,6 +44,7 @@ jobs:
           cd master-branch
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
+          git remote set-url origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.username }}/${{ github.repository }}"
           
           # Commit and push
           git add .
