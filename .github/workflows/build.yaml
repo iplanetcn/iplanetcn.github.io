@@ -34,8 +34,8 @@ jobs:
       - name: Deploy to Master
         run: |
           # Clone the master branch
-#          git clone --branch master https://github.com/${{ github.repository }}.git master-branch
-          git clone --branch master git@github.com:${{ username }}/${{ github.repository }}.git master-branch
+          # git clone --branch master https://github.com/${{ github.repository }}.git master-branch
+          git clone --branch master git@github.com:${{ github.username }}/${{ github.repository }}.git master-branch
           
           # Clear old files and copy new built files
           rm -rf master-branch/*
