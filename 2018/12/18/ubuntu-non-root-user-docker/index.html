@@ -2,25 +2,24 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 7.0.0">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16-logo.png">
+  <link rel="mask-icon" href="../../../../images/logo.svg" color="#222">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-logo.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-logo.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="../../../../css/main.css">
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;iplanetcn.github.io&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Mist&quot;,&quot;version&quot;:&quot;8.5.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script><script src="/js/config.js"></script>
-<meta name="description" content="说明Docker守护程序绑定到Unix套接字而不是TCP端口。默认情况下，Unix套接字由root拥有，而非用户只能通过sudo使用它。Docker守护程序始终以root用户身份运行。 如果不想在docker命令前加上sudo，可创建一个名为docker的Unix用户组并向其添加当前用户。当Docker守护程序启动时，它会创建一个可由该docker组成员访问的Unix套接字。 执行步骤 添加doc">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"iplanetcn.github.io","root":"/","images":"../../../../images","scheme":"Mist","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="../../../../js/config.js"></script>
+
+    <meta name="description" content="说明Docker守护程序绑定到Unix套接字而不是TCP端口。默认情况下，Unix套接字由root拥有，而非用户只能通过sudo使用它。Docker守护程序始终以root用户身份运行。 如果不想在docker命令前加上sudo，可创建一个名为docker的Unix用户组并向其添加当前用户。当Docker守护程序启动时，它会创建一个可由该docker组成员访问的Unix套接字。 执行步骤 添加doc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu中以非root用户身份管理Docker">
 <meta property="og:url" content="https://iplanetcn.github.io/2018/12/18/ubuntu-non-root-user-docker/index.html">
@@ -28,7 +27,7 @@
 <meta property="og:description" content="说明Docker守护程序绑定到Unix套接字而不是TCP端口。默认情况下，Unix套接字由root拥有，而非用户只能通过sudo使用它。Docker守护程序始终以root用户身份运行。 如果不想在docker命令前加上sudo，可创建一个名为docker的Unix用户组并向其添加当前用户。当Docker守护程序启动时，它会创建一个可由该docker组成员访问的Unix套接字。 执行步骤 添加doc">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2018-12-18T16:11:24.000Z">
-<meta property="article:modified_time" content="2025-02-28T23:50:25.270Z">
+<meta property="article:modified_time" content="2025-03-04T04:23:31.618Z">
 <meta property="article:author" content="John">
 <meta property="article:tag" content="ubuntu">
 <meta property="article:tag" content="docker">
@@ -38,18 +37,21 @@
 <link rel="canonical" href="https://iplanetcn.github.io/2018/12/18/ubuntu-non-root-user-docker/">
 
 
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://iplanetcn.github.io/2018/12/18/ubuntu-non-root-user-docker/","path":"2018/12/18/ubuntu-non-root-user-docker/","title":"Ubuntu中以非root用户身份管理Docker"}</script>
 
-<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;iplanetcn.github.io&#x2F;2018&#x2F;12&#x2F;18&#x2F;ubuntu-non-root-user-docker&#x2F;&quot;,&quot;path&quot;:&quot;2018&#x2F;12&#x2F;18&#x2F;ubuntu-non-root-user-docker&#x2F;&quot;,&quot;title&quot;:&quot;Ubuntu中以非root用户身份管理Docker&quot;}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Ubuntu中以非root用户身份管理Docker | John's blog</title>
   
 
 
 
 
+
+
+
+
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="../../../../css/noscript.css">
   </noscript>
 </head>
 
@@ -57,8 +59,8 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
         <span class="toggle-line"></span>
@@ -71,13 +73,13 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">John's blog</h1>
+      <p class="site-title">John's blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
@@ -85,26 +87,16 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="../../../../index.html" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="../../../../tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="../../../../categories/" rel="section"><i class="th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="../../../../archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
   </ul>
 </nav>
 
 
 
 
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -125,66 +117,51 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">John</p>
   <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="../../../../archives/">
           <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
+          <a href="../../../../categories/">
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="../../../../tags/">
         <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/iplanetcn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iplanetcn" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+        <a href="https://github.com/iplanetcn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;iplanetcn" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/u/1917396204" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;1917396204" rel="noopener" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+        <a href="https://weibo.com/u/1917396204" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;1917396204" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:iplanetcn@gmail.com" title="E-Mail → mailto:iplanetcn@gmail.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+        <a href="../../../../mailto:iplanetcn@gmail.com" title="E-Mail → mailto:iplanetcn@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -200,13 +177,18 @@
     <link itemprop="mainEntityOfPage" href="https://iplanetcn.github.io/2018/12/18/ubuntu-non-root-user-docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="../../../../images/avatar.gif">
       <meta itemprop="name" content="John">
-      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="John's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Ubuntu中以非root用户身份管理Docker | John's blog">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -223,20 +205,20 @@
 
       <time title="创建时间：2018-12-19 00:11:24" itemprop="dateCreated datePublished" datetime="2018-12-19T00:11:24+08:00">2018-12-19</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-03-01 07:50:25" itemprop="dateModified" datetime="2025-03-01T07:50:25+08:00">2025-03-01</time>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
       </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-03-04 12:23:31" itemprop="dateModified" datetime="2025-03-04T12:23:31+08:00">2025-03-04</time>
+    </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+          <a href="../../../../categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
         </span>
     </span>
 
@@ -249,8 +231,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>Docker守护程序绑定到Unix套接字而不是TCP端口。默认情况下，Unix套接字由root拥有，而非用户只能通过sudo使用它。Docker守护程序始终以root用户身份运行。</p>
+    <div class="post-body" itemprop="articleBody"><h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><p>Docker守护程序绑定到Unix套接字而不是TCP端口。默认情况下，Unix套接字由root拥有，而非用户只能通过sudo使用它。Docker守护程序始终以root用户身份运行。</p>
 <p>如果不想在docker命令前加上sudo，可创建一个名为docker的Unix用户组并向其添加当前用户。当Docker守护程序启动时，它会创建一个可由该docker组成员访问的Unix套接字。</p>
 <h4 id="执行步骤"><a href="#执行步骤" class="headerlink" title="执行步骤"></a>执行步骤</h4><ul>
 <li><h5 id="添加docker用户组-ubuntu16-04安装docker后-默认会创建该用户组"><a href="#添加docker用户组-ubuntu16-04安装docker后-默认会创建该用户组" class="headerlink" title="添加docker用户组 (ubuntu16.04安装docker后,默认会创建该用户组)"></a>添加docker用户组 (ubuntu16.04安装docker后,默认会创建该用户组)</h5></li>
@@ -285,21 +266,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
-              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="../../../../tags/ubuntu/" rel="tag"># ubuntu</a>
+              <a href="../../../../tags/docker/" rel="tag"># docker</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2019/02/28/shell-test/" rel="prev" title="Shell测试(test)命令">
-                  <i class="fa fa-chevron-left"></i> Shell测试(test)命令
+                <a href="../../../../2019/02/28/shell-test/" rel="prev" title="Shell测试(test)命令">
+                  <i class="fa fa-angle-left"></i> Shell测试(test)命令
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2018/07/09/macos-manage-pythons/" rel="next" title="macOS 安装和管理多个Python版本">
-                  macOS 安装和管理多个Python版本 <i class="fa fa-chevron-right"></i>
+                <a href="../../../07/09/macos-manage-pythons/" rel="next" title="macOS 安装和管理多个Python版本">
+                  macOS 安装和管理多个Python版本 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -318,15 +299,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2017 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">John</span>
-</div>
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John</span>
+  </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
@@ -334,8 +314,25 @@
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="../../../../js/comments.js"></script><script src="../../../../js/utils.js"></script><script src="../../../../js/motion.js"></script><script src="../../../../js/sidebar.js"></script><script src="../../../../js/next-boot.js"></script>
 
   
 
