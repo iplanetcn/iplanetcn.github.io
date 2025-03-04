@@ -20,4 +20,12 @@ hexo generate
 # Run local server
 hexo server
 
+# Deploy
+hexo deploy
+
 ```
+
+    "build": "hexo generate",
+    "clean": "hexo clean",
+    "deploy": "hexo deploy",
+    "server": "hexo server"
