@@ -21,13 +21,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
+          cache: 'yarn'
 
       # Install dependencies and build
       - name: Install and Build
         run: |
-          npm ci
-          npm install -g hexo-cli
+          yarn install
+          yarn global add hexo-cli
           hexo generate
 
       # Deploy to master branch
