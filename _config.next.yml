@@ -42,7 +42,7 @@ scheme: Mist
 #scheme: Gemini
 
 # Dark Mode
-darkmode: false
+darkmode: true
 
 
 # ---------------------------------------------------------------
@@ -366,16 +366,16 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: tomorrow-night-blue
+    light: atom-one-dark
+    dark: atom-one-dark
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: ture
     # Available values: default | flat | mac
-    style:
+    style: mac
 
 back2top:
   enable: true
