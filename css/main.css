@@ -261,9 +261,6 @@ h5 {
 h6 {
   font-size: 0.875em;
 }
-p {
-  margin: 0 0 20px;
-}
 a {
   border-bottom: 1px solid #ccc;
   color: var(--link-color);
@@ -501,6 +498,14 @@ hue-6-2: #e6c07b
 }
 .code-container {
   position: relative;
+}
+.code-lang {
+  font-size: 40px;
+  line-height: 1;
+  opacity: 0.1;
+  pointer-events: none;
+  position: absolute;
+  right: 5px;
 }
 .copy-btn {
   color: #333;
@@ -1272,7 +1277,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #7cac0e;
+  background: #bfe3a4;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1605,7 +1610,7 @@ pre code {
   flex-direction: column;
 }
 .links-of-blogroll-item {
-  max-width: calc(100% - 20px);
+  max-width: 100%;
 }
 .links-of-blogroll-item a {
   box-sizing: border-box;
@@ -2040,6 +2045,7 @@ pre code {
   border-bottom: 0;
   color: var(--link-color);
   display: inline-block;
+  max-width: 100%;
   position: relative;
 }
 .posts-expand .post-title-link::before {
